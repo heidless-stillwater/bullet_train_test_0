@@ -22,9 +22,9 @@ steps:
 
 substitutions:
   _REGION: europe-west1
-  _SERVICE_NAME: photo-app-0-svc
-  _INSTANCE_NAME: photo-app-0-instance-0
-  _SECRET_NAME: photo-app-0-secret
+  _SERVICE_NAME: bullet-train-app-0-svc
+  _INSTANCE_NAME: bullet-train-0-instance-0
+  _SECRET_NAME: bullet-train-0-secret
 
 availableSecrets:
   secretManager:

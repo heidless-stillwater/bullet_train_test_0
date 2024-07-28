@@ -82,9 +82,25 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
+# [START cloudrun_rails_database]
 production:
   <<: *default
-  database: untitled_application_production
-  username: untitled_application
-  password: <%= ENV['UNTITLED_APPLICATION_DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>
+  database: <%= ENV["PRODUCTION_DB_NAME"] %>
+  username: <%= ENV["PRODUCTION_DB_USERNAME"] %>
+  password: <%= Rails.application.credentials.gcp[:db_password] %>
+  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '' } %>/<%= ENV["CLOUD_SQL_CONNECTION_NAME"] %>"
+  url: "<%= ENV.fetch("DB_SOCKET_DIR") { '' } %>/<%= ENV["CLOUD_SQL_CONNECTION_NAME"] %>"
+# [END cloudrun_rails_database]
+
+
+
+# [START cloudrun_rails_database]
+# production:
+#   <<: *default
+#   database: <%= ENV["PRODUCTION_DB_NAME"] %>
+#   username: <%= ENV["PRODUCTION_DB_USERNAME"] %>
+#   password: <%= Rails.application.credentials.gcp[:db_password] %>
+#   host: <%= Rails.application.credentials.gcp[:db_instance_host] %>
+  # url: <%= Rails.application.credentials.gcp[:db_instance_url] %>
+# [END cloudrun_rails_database]

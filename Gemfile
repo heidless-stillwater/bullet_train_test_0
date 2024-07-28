@@ -6,7 +6,11 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby(File.read(File.expand_path(".ruby-version", __dir__)))
+# ruby(File.read(File.expand_path(".ruby-version", __dir__)))
+
+ruby '3.3.4'
+
+gem "dotenv-rails", "~> 2.8"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
